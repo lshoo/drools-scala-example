@@ -40,7 +40,7 @@ when
   $traffic : Traffic ( light == "yellow" )
   DrivingStyle ( style == "sane" )
 then
-  inserTrafficResponse ( kcontext, $traffic, "stop" )
+  insertTrafficResponse ( kcontext, $traffic, "stop" )
 end
 
 rule "city is Boston"
