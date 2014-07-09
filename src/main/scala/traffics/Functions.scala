@@ -36,7 +36,8 @@ case class DrivingStyle(style: String)
 @BeanInfo
 case class TrafficResponse(action: String)
 
-class CityLocator {
+@BeanInfo
+case class CityLocator() {
   def city(traffic: Traffic): String = if (traffic.cid == 0) "Boston" else "New York"
 }
 

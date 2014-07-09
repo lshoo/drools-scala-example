@@ -15,44 +15,44 @@ no-loop
 
 rule "traffic light green"
 when
-	$traffic: Traffic(light == "green")
+  $traffic : Traffic ( light == "green" )
 then
   insertTrafficResponse(kcontext, $traffic, "proceed")
 end
 
 rule "traffic light red"
 when
-  $traffic: Traffic(light == "red")
+  $traffic : Traffic(light == "red")
 then
   insertTrafficResponse(kcontext, $traffic, "stop")
 end
 
 rule "traffic light yellow and driving crazy"
 when
-  $traffic: Traffic(light == "yellow")
-  DrivingStyle(style == "crazy")
+  $traffic : Traffic ( light == "yellow" )
+  DrivingStyle ( style == "crazy" )
 then
   insertTrafficResponse(kcontext, $traffic, "accelerate")
 end
 
 rule "traffic light yellow and driving sane"
 when
-  $traffic: Traffic(light == "yellow")
-  DrivingStyle(style == "sane")
+  $traffic : Traffic ( light == "yellow" )
+  DrivingStyle ( style == "sane" )
 then
-  inserTrafficResponse(kcontext, $traffic, "stop")
+  insertTrafficResponse(kcontext, $traffic, "stop")
 end
 
 rule "city is Boston"
 when
-  $traffic: Traffic(eval(cityLocator.city($traffic) == "Boston"))
+  $traffic : Traffic (eval (cityLocator.city($traffic) == "Boston" ) )
 then
   insertDrivingStyle(kcontext, "crazy")
 end
 
 rule "city is not Boston"
 when
-  $traffic: Traffic(eval(cityLocator.city($traffic) != "Boston"))
+  $traffic : Traffic (eval (cityLocator.city($traffic) != "Boston" ) )
 then
   insertDrivingStyle(kcontext, "sane")
 end
